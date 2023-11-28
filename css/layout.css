@@ -1,0 +1,32 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-one-half {
+  display: flex;
+  flex-basis: calc(100% / 2);
+  align-items: flex-end;
+  background-color: #0802a3;
+  color: #ffcd4b;
+}
+
+.home {
+  color: #fff;
+}
+
+#pokemon-type {
+  background-color: #ffcd4b;
+  margin-bottom: 1.3rem;
+  margin-left: 3.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.fa-heart {
+  display: flex;
+  object-fit: center;
+  height: 45px;
+  font-size: 30px;
+  margin-left: 3.5rem;
+}
