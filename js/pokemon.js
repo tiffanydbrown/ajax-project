@@ -1,18 +1,16 @@
 function getPokemonData(name) {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon?limit=151/');
+  xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon?limit=76/');
   xhr.responseType = 'json';
 
   xhr.addEventListener('load', function () {
-    console.log(xhr.response);
     const genOne = xhr.response;
-    console.log('xhr', genOne.results);
+
     for (let i = 0; i < genOne.results.length; i++) {
       const xhr2 = new XMLHttpRequest();
       xhr2.open('GET', `${genOne.results[i].url}`);
       xhr2.responseType = 'json';
       xhr2.addEventListener('load', function () {
-        console.log('xh2', xhr2.response);
         const $rowPokemon = document.querySelector('.row-pokemon');
         $rowPokemon.appendChild(renderPokemon(xhr2.response));
       });
@@ -44,7 +42,10 @@ function renderPokemon(pokemon) {
   $number.textContent = '#' + pokemon.id;
 
   const $experience = document.createElement('p');
-  $experience.textContent = pokemon.base_experience;
+  $experience.textContent = 'Experience: ' + pokemon.base_experience;
+
+  const $species = document.createElement('p');
+  $species.textContent = 'Species: ' + pokemon.species.name;
 
   $colDiv.appendChild($pcDiv);
   $pcDiv.appendChild($pokeImage);
@@ -52,6 +53,33 @@ function renderPokemon(pokemon) {
   $pokeText.appendChild($name);
   $pokeText.appendChild($number);
   $pokeText.appendChild($experience);
+  $pokeText.appendChild($species);
 
   return $colDiv;
 }
+
+const $button = document.querySelector('.load');
+
+$button.addEventListener('click', (event) => {
+  if (event.target.matches('.load')) {
+    const xhr3 = new XMLHttpRequest();
+    xhr3.open('GET', 'https://pokeapi.co/api/v2/pokemon?limit=76&offset=76/');
+    xhr3.responseType = 'json';
+
+    xhr3.addEventListener('load', function () {
+      const genOne2 = xhr3.response;
+
+      for (let i = 0; i < genOne2.results.length; i++) {
+        const xhr4 = new XMLHttpRequest();
+        xhr4.open('GET', `${genOne2.results[i].url}`);
+        xhr4.responseType = 'json';
+        xhr4.addEventListener('load', function () {
+          const $rowPokemon = document.querySelector('.row-pokemon');
+          $rowPokemon.appendChild(renderPokemon(xhr4.response));
+        });
+        xhr4.send();
+      }
+    });
+    xhr3.send();
+  }
+});

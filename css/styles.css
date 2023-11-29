@@ -1,11 +1,11 @@
 @media only screen and (width >= 575px) {
-  .row-pokemon {
+  .column-one-fifth {
     flex-basis: 50%;
   }
 }
 
 @media only screen and (width >= 767px) {
-  .row-pokemon {
+  .column-one-fifth {
     flex-basis: calc(100% / 5);
   }
 }
