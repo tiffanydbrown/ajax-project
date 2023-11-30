@@ -1,20 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-  </header>
-  <main>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX Project</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-row">
+        <div class="column-one-half">
+          <h1>Catch 'Em if You Can!</h1>
+        </div>
+        <div class="column-one-half">
+          <h2 class="home">Home</h2>
+          <select name="sort" id="pokemon-type">
+            <option value="">Sort By Type</option>
+            <option value="normal">Normal</option>
+            <option value="fire">Fire</option>
+            <option value="water">Water</option>
+            <option value="electric">Electric</option>
+            <option value="grass">Grass</option>
+            <option value="ice">Ice</option>
+            <option value="fighting">Fighting</option>
+            <option value="poison">Poison</option>
+            <option value="ground">Ground</option>
+            <option value="flying">Flying</option>
+            <option value="psychic">Psychic</option>
+            <option value="bug">Bug</option>
+            <option value="rock">Rock</option>
+            <option value="ghost">Ghost</option>
+            <option value="dragon">Dragon</option>
+            <option value="dark">Dark</option>
+          </select>
+          <i class="fa-solid fa-heart" style="color: #ff4b91"></i>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="view" data-view="pokedex">
+        <div class="pokemon-container">
+          <div class="row-pokemon"></div>
+          <div class="row">
+            <div class="column-full">
+              <button class="load" type="button">
+                <strong>LOAD MORE</strong>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/pokemon.js"></script>
+    <script
+      src="https://kit.fontawesome.com/3d1b6d9784.js"
+      crossorigin="anonymous"></script>
+  </body>
 </html>

@@ -1,0 +1,33 @@
+.header-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-one-half {
+  display: flex;
+  flex-basis: calc(100% / 2);
+  align-items: flex-end;
+  background-color: #0802a3;
+  color: #ffcd4b;
+}
+
+.pokemon-container {
+  max-width: 1000px;
+  margin: 1rem auto;
+}
+
+.row-pokemon {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-one-fifth {
+  padding: 0 0.5rem;
+  width: calc(100% / 5);
+}
+
+.column-full {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+}
