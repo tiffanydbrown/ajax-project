@@ -1,4 +1,4 @@
-function getPokemonData(name) {
+function getPokemonData() {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon?limit=76/');
   xhr.responseType = 'json';
@@ -20,7 +20,7 @@ function getPokemonData(name) {
   xhr.send();
 }
 
-getPokemonData('bulbasaur');
+getPokemonData();
 
 function renderPokemon(pokemon) {
   const $colDiv = document.createElement('div');
