@@ -38,7 +38,6 @@ p {
   margin-bottom: 1rem;
   border: 1px solid #ffcd4b;
   border-radius: 0.25rem;
-  box-shadow: 0 6px -4px #afa8a8;
 }
 
 .pokemon-card-text {
@@ -67,4 +66,38 @@ p {
   border-radius: 10px;
   margin-top: 2rem;
   cursor: pointer;
+}
+
+.pokemon-status-card {
+  border: 1px solid #ffcd4b;
+  border-radius: 0.25rem;
+  background-color: #ffcd4b;
+}
+
+.pokemon-status-card > p {
+  font-size: 22px;
+  font-family: 'Proza Libre', sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pokemon-status-card > img {
+  width: 100%;
+  background-color: #ffcd4b;
+}
+
+.pokemon-status-card > i {
+  height: 45px;
+  font-size: 30px;
+  margin-left: 3.5rem;
+  color: #ff4b91;
+}
+
+.pokemon-card-text2 {
+  padding: 1rem;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: 'Proza Libre', sans-serif;
+  margin: 1rem;
+  background-color: #fff;
 }
