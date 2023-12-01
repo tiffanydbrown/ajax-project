@@ -1,3 +1,6 @@
+const $pokedexView = document.querySelector('#pokedex-view');
+const $modalView = document.querySelector('#modal-view');
+
 function getPokemonData() {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon?limit=76/');
@@ -86,10 +89,13 @@ $button.addEventListener('click', (event) => {
 });
 
 // const $pokemonCard = document.querySelector('.pokemon-card');
-// $pokemonCard.setAttribute()
 
 // $pokemonCard.addEventListener('click', (event) => {
-//   if(event.target.className === )
+//   if(event.target === pokemon.name) {
+//     for (let i = 0; i < pokemon.name.length; i++) {
+
+//     }
+//   }
 // })
 
 function getPokemonModalData() {
@@ -179,6 +185,17 @@ function renderPokemonStatusCard(pokemon) {
   $pokeCardText2.appendChild($cardAbilities);
 
   return $rowModal;
+}
+
+function viewSwap(viewName) {
+  if (viewName === 'modal-view') {
+    $pokedexView.classList.add('hidden');
+    $modalView.classList.remove('hidden');
+  } else {
+    $modalView.classList.add('hidden');
+    $pokedexView.classList.remove('hidden');
+  }
+  data.view = viewName;
 }
 
 // const $exitButton = document.querySelector('.exit');

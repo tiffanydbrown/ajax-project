@@ -28,12 +28,18 @@
 
 .column-full {
   display: flex;
-  flex-basis: 100%;
+  width: 100%;
   justify-content: center;
 }
 
+.row-modal {
+  display: flex;
+  margin: 25rem;
+}
+
 .card-column-one-half {
-  padding: 2rem;
+  padding: 2rem 0 0;
   width: calc(100% / 2);
   margin: 2rem auto;
+  justify-content: center;
 }

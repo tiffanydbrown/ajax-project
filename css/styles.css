@@ -69,7 +69,7 @@ p {
 }
 
 .pokemon-status-card {
-  border: 1px solid #ffcd4b;
+  border: 20px solid #ffcd4b;
   border-radius: 0.25rem;
   background-color: #ffcd4b;
 }
@@ -79,6 +79,7 @@ p {
   font-family: 'Proza Libre', sans-serif;
   font-weight: 600;
   text-align: center;
+  padding: 1rem;
 }
 
 .pokemon-status-card > img {
@@ -91,13 +92,14 @@ p {
   font-size: 30px;
   margin-left: 3.5rem;
   color: #ff4b91;
+  padding: 1rem;
 }
 
 .pokemon-card-text2 {
-  padding: 1rem;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
   font-family: 'Proza Libre', sans-serif;
-  margin: 1rem;
   background-color: #fff;
+  border: 20px solid #ffcd4b;
+  height: 100%;
 }

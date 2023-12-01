@@ -1,5 +1,5 @@
 /* exported data */
-let pokemon = {
+let data = {
   view: 'pokedex',
   entries: [],
 };
