@@ -60,13 +60,9 @@ function renderPokemon(pokemon) {
   $pokeText.appendChild($species);
 
   $colDiv.addEventListener('click', (event) => {
-    // console.log(event.target);
-    // console.log(pokemon.name);
     const $clickedCard = event.target.closest('.column-one-fifth');
-    console.log($clickedCard);
 
     const $modalCard = $clickedCard.getAttribute('data-name');
-    console.log($modalCard);
 
     getPokemonModalData(pokemon.name);
     viewSwap('modal-view');
