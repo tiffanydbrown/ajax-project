@@ -38,6 +38,7 @@ p {
   margin-bottom: 1rem;
   border: 1px solid #ffcd4b;
   border-radius: 0.25rem;
+  cursor: pointer;
 }
 
 .pokemon-card-text {
@@ -102,4 +103,12 @@ p {
   background-color: #fff;
   border: 20px solid #ffcd4b;
   height: 100%;
+}
+
+.exit {
+  background-color: #ff7676;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
 }
