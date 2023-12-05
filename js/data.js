@@ -1,8 +1,5 @@
 /* exported data */
-// let data = {
-//   view: 'pokedex',
-//   entries: [],
-// };
+let data = [];
 
 window.addEventListener('beforeunload', (event) => {
   const pokemonJSON = JSON.stringify(pokemon);

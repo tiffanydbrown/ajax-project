@@ -61,10 +61,17 @@ function renderPokemon(pokemon) {
 
   $colDiv.addEventListener('click', (event) => {
     const $clickedCard = event.target.closest('.column-one-fifth');
-
     const $modalCard = $clickedCard.getAttribute('data-name');
 
-    getPokemonModalData(pokemon.name);
+    //set a variable to fill with the id/name of card clicked
+    let clickedID;
+    //target the id/name of card
+    const cardID = event.target.id;
+    //update variable
+    clickedID = pokemon.id;
+    // getPokemonModalData(pokemon.name); // delete
+    //call render function
+    getPokemonModalData(pokemon.id);
     viewSwap('modal-view');
   });
 
@@ -189,17 +196,12 @@ function renderPokemonStatusCard(pokemon) {
 function viewSwap(viewName) {
   if (viewName === 'modal-view') {
     $pokedexView.classList.add('hidden');
-    // $modalView.classList.remove('hidden');
+    $modalView.classList.remove('hidden');
   } else {
-    // $modalView.classList.add('hidden');
+    $modalView.classList.add('hidden');
     $pokedexView.classList.remove('hidden');
   }
-  // data.view = viewName;
-  console.log('running');
-  console.log($pokedexView);
-  console.log(viewName);
 }
-console.log(viewSwap('modal-view'));
 
 const $exitButton = document.querySelector('.exit');
 
