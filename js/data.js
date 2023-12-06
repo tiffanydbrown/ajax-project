@@ -1,5 +1,7 @@
 /* exported data */
-let data = [];
+let data = {
+  info: [],
+};
 
 window.addEventListener('beforeunload', (event) => {
   const pokemonJSON = JSON.stringify(pokemon);

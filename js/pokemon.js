@@ -63,15 +63,23 @@ function renderPokemon(pokemon) {
     const $clickedCard = event.target.closest('.column-one-fifth');
     const $modalCard = $clickedCard.getAttribute('data-name');
 
-    //set a variable to fill with the id/name of card clicked
     let clickedID;
-    //target the id/name of card
     const cardID = event.target.id;
-    //update variable
     clickedID = pokemon.id;
-    // getPokemonModalData(pokemon.name); // delete
-    //call render function
+
     getPokemonModalData(pokemon.id);
+
+    // const pokemonCardsData = {
+    //   cards,
+    // };
+
+    // pokemonCardsData.cards = data.info;
+    // for (let i = 0; i < data.info.length; i++) {
+    //   if(data.info[i].Id === pokemonCardsData.cards.Id) {
+    //     data.info[i] = pokemonCardsData;
+    //   }
+    // }
+
     viewSwap('modal-view');
   });
 
