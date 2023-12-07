@@ -1,12 +1,24 @@
-@media only screen and (width >= 575px) {
+@media only screen and (width >= 430px) {
   .column-one-fifth {
     flex-basis: 50%;
   }
 }
 
-@media only screen and (width >= 767px) {
+@media only screen and (width >= 932px) {
   .column-one-fifth {
     flex-basis: calc(100% / 5);
+  }
+}
+
+@media only screen and (width >= 430px) {
+  .card-column-one-half {
+    flex-basis: 50%;
+  }
+}
+
+@media only screen and (width >= 932px) {
+  .card-column-one-half {
+    flex-basis: calc(100% / 2);
   }
 }
 
@@ -111,4 +123,8 @@ p {
   padding: 0.5rem 1rem;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.modal-view {
+  background-color: #ff76764f;
 }

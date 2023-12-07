@@ -67,18 +67,9 @@ function renderPokemon(pokemon) {
     const cardID = event.target.id;
     clickedID = pokemon.id;
 
+    //check if id already exists, if so, delete
+
     getPokemonModalData(pokemon.id);
-
-    // const pokemonCardsData = {
-    //   cards,
-    // };
-
-    // pokemonCardsData.cards = data.info;
-    // for (let i = 0; i < data.info.length; i++) {
-    //   if(data.info[i].Id === pokemonCardsData.cards.Id) {
-    //     data.info[i] = pokemonCardsData;
-    //   }
-    // }
 
     viewSwap('modal-view');
   });
@@ -112,34 +103,37 @@ $button.addEventListener('click', (event) => {
   }
 });
 
-function getPokemonModalData() {
+function getPokemonModalData(id) {
   const xhr5 = new XMLHttpRequest();
-  xhr5.open('GET', 'https://pokeapi.co/api/v2/pokemon?limit=151');
+  xhr5.open('GET', `https://pokeapi.co/api/v2/pokemon/${id}`);
   xhr5.responseType = 'json';
 
   xhr5.addEventListener('load', function () {
     const genOne3 = xhr5.response;
 
-    for (let i = 0; i < genOne3.results.length; i++) {
-      const xhr6 = new XMLHttpRequest();
-      xhr6.open('GET', `${genOne3.results[i].url}`);
-      xhr6.responseType = 'json';
-      xhr6.addEventListener('load', function () {
-        const $modalContainer = document.querySelector('.modal-container');
-        $modalContainer.appendChild(renderPokemonStatusCard(xhr6.response));
-        console.log(xhr6.response);
-      });
-      xhr6.send();
-    }
+    // for (let i = 0; i < genOne3.results.length; i++) {
+    //   const xhr6 = new XMLHttpRequest();
+    //   xhr6.open('GET', `${genOne3.results[i].url}`);
+    //   xhr6.responseType = 'json';
+    //   xhr6.addEventListener('load', function () {
+    //     const $modalContainer = document.querySelector('.modal-container');
+    //     $modalContainer.appendChild(renderPokemonStatusCard(xhr6.response));
+    //   });
+    //   xhr6.send();
+    // }
+    console.log(genOne3);
+    const $modalContainer = document.querySelector('.modal-container');
+    $modalContainer.appendChild(renderPokemonStatusCard(genOne3));
   });
   xhr5.send();
 }
 
-getPokemonModalData();
+// getPokemonModalData();
 
 function renderPokemonStatusCard(pokemon) {
   const $rowModal = document.createElement('div');
   $rowModal.setAttribute('class', 'row-modal');
+  $rowModal.setAttribute('data-name', pokemon.name);
 
   const $cardDiv = document.createElement('div');
   $cardDiv.setAttribute('class', 'card-column-one-half');
@@ -217,5 +211,4 @@ $exitButton.addEventListener('click', (event) => {
   if (event.target.matches('.exit')) {
     viewSwap('pokedex-view');
   }
-  console.log(event.target);
 });
