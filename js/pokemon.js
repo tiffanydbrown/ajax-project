@@ -111,24 +111,11 @@ function getPokemonModalData(id) {
   xhr5.addEventListener('load', function () {
     const genOne3 = xhr5.response;
 
-    // for (let i = 0; i < genOne3.results.length; i++) {
-    //   const xhr6 = new XMLHttpRequest();
-    //   xhr6.open('GET', `${genOne3.results[i].url}`);
-    //   xhr6.responseType = 'json';
-    //   xhr6.addEventListener('load', function () {
-    //     const $modalContainer = document.querySelector('.modal-container');
-    //     $modalContainer.appendChild(renderPokemonStatusCard(xhr6.response));
-    //   });
-    //   xhr6.send();
-    // }
-    console.log(genOne3);
     const $modalContainer = document.querySelector('.modal-container');
     $modalContainer.appendChild(renderPokemonStatusCard(genOne3));
   });
   xhr5.send();
 }
-
-// getPokemonModalData();
 
 function renderPokemonStatusCard(pokemon) {
   const $rowModal = document.createElement('div');

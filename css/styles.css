@@ -22,8 +22,8 @@
   }
 }
 
-.home {
-  color: #fff;
+h1 {
+  margin-left: 2rem;
 }
 
 #pokemon-type {
@@ -123,6 +123,7 @@ p {
   padding: 0.5rem 1rem;
   border-radius: 10px;
   cursor: pointer;
+  margin: 2rem;
 }
 
 .modal-view {

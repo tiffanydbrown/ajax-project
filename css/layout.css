@@ -5,6 +5,7 @@
 
 .column-one-half {
   display: flex;
+  flex-wrap: wrap;
   flex-basis: calc(100% / 2);
   align-items: flex-end;
   background-color: #0802a3;
@@ -34,14 +35,14 @@
 
 .row-modal {
   display: flex;
-  margin: 0 30rem;
+  justify-content: center;
+  margin: 3rem;
 }
 
 .card-column-one-half {
   padding: 2rem 0 0;
   width: calc(100% / 2);
   margin: 2rem auto;
-  justify-content: center;
 }
 
 .hidden {
