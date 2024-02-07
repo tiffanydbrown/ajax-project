@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
   </head>
   <body>
     <header>
@@ -16,7 +22,6 @@
           <h1>Catch 'Em if You Can!</h1>
         </div>
         <div class="column-one-half">
-          <h2 class="home">Home</h2>
           <select name="sort" id="pokemon-type">
             <option value="">Sort By Type</option>
             <option value="normal">Normal</option>
@@ -41,7 +46,7 @@
       </div>
     </header>
     <main>
-      <div class="view" data-view="pokedex">
+      <div class="pokedex-view" id="pokedex-view" data-view="pokedex">
         <div class="pokemon-container">
           <div class="row-pokemon"></div>
           <div class="row">
@@ -53,12 +58,19 @@
           </div>
         </div>
       </div>
+      <div class="modal-view" id="modal-view" data-view="modal">
+        <div class="modal-container"></div>
+        <div class="row">
+          <div class="column-full">
+            <button class="exit" type="button">
+              <strong>EXIT</strong>
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
     <script src="js/pokemon.js"></script>
-    <script
-      src="https://kit.fontawesome.com/3d1b6d9784.js"
-      crossorigin="anonymous"></script>
   </body>
 </html>

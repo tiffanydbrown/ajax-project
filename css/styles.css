@@ -1,17 +1,29 @@
-@media only screen and (width >= 575px) {
+@media only screen and (width >= 430px) {
   .column-one-fifth {
     flex-basis: 50%;
   }
 }
 
-@media only screen and (width >= 767px) {
+@media only screen and (width >= 932px) {
   .column-one-fifth {
     flex-basis: calc(100% / 5);
   }
 }
 
-.home {
-  color: #fff;
+@media only screen and (width >= 430px) {
+  .card-column-one-half {
+    flex-basis: 50%;
+  }
+}
+
+@media only screen and (width >= 932px) {
+  .card-column-one-half {
+    flex-basis: calc(100% / 2);
+  }
+}
+
+h1 {
+  margin-left: 2rem;
 }
 
 #pokemon-type {
@@ -38,7 +50,7 @@ p {
   margin-bottom: 1rem;
   border: 1px solid #ffcd4b;
   border-radius: 0.25rem;
-  box-shadow: 0 6px -4px #afa8a8;
+  cursor: pointer;
 }
 
 .pokemon-card-text {
@@ -67,4 +79,53 @@ p {
   border-radius: 10px;
   margin-top: 2rem;
   cursor: pointer;
+}
+
+.pokemon-status-card {
+  border: 20px solid #ffcd4b;
+  border-radius: 0.25rem;
+  background-color: #ffcd4b;
+}
+
+.pokemon-status-card > p {
+  font-size: 22px;
+  font-family: 'Proza Libre', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+}
+
+.pokemon-status-card > img {
+  width: 100%;
+  background-color: #ffcd4b;
+}
+
+.pokemon-status-card > i {
+  height: 45px;
+  font-size: 30px;
+  margin-left: 3.5rem;
+  color: #ff4b91;
+  padding: 1rem;
+}
+
+.pokemon-card-text2 {
+  font-size: 24px;
+  font-weight: 600;
+  font-family: 'Proza Libre', sans-serif;
+  background-color: #fff;
+  border: 20px solid #ffcd4b;
+  height: 100%;
+}
+
+.exit {
+  background-color: #ff7676;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 2rem;
+}
+
+.modal-view {
+  background-color: #ff76764f;
 }

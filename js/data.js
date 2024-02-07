@@ -1,7 +1,6 @@
 /* exported data */
-let pokemon = {
-  view: 'pokedex',
-  entries: [],
+let data = {
+  info: [],
 };
 
 window.addEventListener('beforeunload', (event) => {
