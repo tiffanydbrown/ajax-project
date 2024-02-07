@@ -196,6 +196,8 @@ const $exitButton = document.querySelector('.exit');
 
 $exitButton.addEventListener('click', (event) => {
   if (event.target.matches('.exit')) {
+    const $rowModal = document.querySelector('.row-modal');
+    $rowModal.remove();
     viewSwap('pokedex-view');
   }
 });
