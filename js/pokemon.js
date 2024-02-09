@@ -139,6 +139,7 @@ function renderPokemonStatusCard(pokemon) {
 
   const $favorite = document.createElement('i');
   $favorite.setAttribute('class', 'fa-regular fa-heart');
+  $favorite.setAttribute('id', 'likes');
 
   const $cardStats = document.createElement('p');
   $cardStats.textContent = pokemon.stats[0].base_stat + ' HP';
@@ -179,6 +180,18 @@ function renderPokemonStatusCard(pokemon) {
   $pokeCardText2.appendChild($cardWeight);
   $pokeCardText2.appendChild($cardAbilities);
 
+  let click = 0;
+
+  $favorite.addEventListener('click', (event) => {
+    click++;
+    console.log(click);
+    if (click % 2 === 0) {
+      $favorite.className = 'fa-regular fa-heart';
+    } else if (click % 2 === 1) {
+      $favorite.className = 'fa-solid fa-heart';
+    }
+  });
+
   return $rowModal;
 }
 
@@ -196,6 +209,8 @@ const $exitButton = document.querySelector('.exit');
 
 $exitButton.addEventListener('click', (event) => {
   if (event.target.matches('.exit')) {
+    const $rowModal = document.querySelector('.row-modal');
+    $rowModal.remove();
     viewSwap('pokedex-view');
   }
 });
