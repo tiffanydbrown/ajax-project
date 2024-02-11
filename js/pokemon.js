@@ -220,8 +220,11 @@ const $exitButton = document.querySelector('.exit');
 $exitButton.addEventListener('click', (event) => {
   if (event.target.matches('.exit')) {
     const $rowModal = document.querySelector('.row-modal');
-    $rowModal.remove();
-    viewSwap('pokedex-view');
+
+    if ($rowModal) {
+      $rowModal.remove();
+      viewSwap('pokedex-view');
+    }
   }
 });
 
@@ -246,15 +249,23 @@ $heartIcon.addEventListener('click', (event) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const $favoritesBottom = document.querySelector('.favorite-container');
-  $favoritesBottom.classList.add('hide-favorites');
+  const $favoritesModal = document.querySelector('.modal-container');
 
-  const $favoritesModal = document.querySelector('.favorite-container-modal');
-  $favoritesModal.classList.add('hide-favorites');
+  if ($favoritesBottom) {
+    $favoritesBottom.classList.add('hide-favorites');
+  }
+
+  if ($favoritesModal) {
+    $favoritesModal.classList.add('hide-favorites');
+  }
 
   renderFavoritePokemon();
 });
 
 function renderFavoritePokemon() {
+  const currentView = document.querySelector('.favorite-view');
+  if (!currentView) return;
+
   const $favoriteContainer = document.querySelector('.favorite-container');
   $favoriteContainer.innerHTML = '';
 
@@ -263,7 +274,6 @@ function renderFavoritePokemon() {
     const favoriteData = favorites[i];
     const $cardDiv = renderPokemonFavorites(favoriteData);
 
-    // Add the column-one-fifth class to each card
     $cardDiv.classList.add('column-one-fifth');
 
     $favoriteContainer.appendChild($cardDiv);
@@ -306,16 +316,11 @@ function renderPokemonFavorites(pokemon) {
 
   $colDiv.addEventListener('click', (event) => {
     const $clickedCard = event.target.closest('.column-one-fifth');
-    const $favoriteCard = $clickedCard.getAttribute('data-name');
+    const pokemonId = $clickedCard.getAttribute('data-name'); // Ensure this is the correct attribute
 
-    let favoriteClickedID;
-    const favoriteCardID = event.target.id;
-    favoriteCardID = pokemon.id;
+    getPokemonModalData(pokemonId);
 
-    getPokemonFavoriteData(pokemon.id);
-
-    viewSwap('favorite-view');
+    viewSwap('modal-view');
   });
-
   return $colDiv;
 }
