@@ -1,5 +1,6 @@
 const $pokedexView = document.querySelector('.pokedex-view');
 const $modalView = document.querySelector('.modal-view');
+const $favoriteView = document.querySelector('.favorite-view');
 
 function getPokemonData() {
   const xhr = new XMLHttpRequest();
@@ -66,8 +67,6 @@ function renderPokemon(pokemon) {
     let clickedID;
     const cardID = event.target.id;
     clickedID = pokemon.id;
-
-    //check if id already exists, if so, delete
 
     getPokemonModalData(pokemon.id);
 
@@ -184,14 +183,25 @@ function renderPokemonStatusCard(pokemon) {
 
   $favorite.addEventListener('click', (event) => {
     click++;
-    console.log(click);
     if (click % 2 === 0) {
       $favorite.className = 'fa-regular fa-heart';
+      removeFromFavorites(pokemon.id);
     } else if (click % 2 === 1) {
       $favorite.className = 'fa-solid fa-heart';
+      addToFavorites(pokemon);
     }
   });
+  function addToFavorites(pokemon) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites.push(pokemon);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
 
+  function removeFromFavorites(pokemonId) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites = favorites.filter((pokemon) => pokemon.id !== pokemonId);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
   return $rowModal;
 }
 
@@ -214,3 +224,98 @@ $exitButton.addEventListener('click', (event) => {
     viewSwap('pokedex-view');
   }
 });
+
+function favoriteViewSwap(viewName) {
+  if (viewName === 'favorite-view') {
+    $pokedexView.classList.add('hidden');
+    $favoriteView.classList.remove('hidden');
+  } else {
+    $favoriteView.classList.add('hidden');
+    $pokedexView.classList.remove('hidden');
+  }
+}
+
+const $heartIcon = document.querySelector('#favoriteHeart');
+
+$heartIcon.addEventListener('click', (event) => {
+  if (event.target.matches('#favoriteHeart')) {
+    favoriteViewSwap('favorite-view');
+    renderFavoritePokemon();
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const $favoritesBottom = document.querySelector('.favorite-container');
+  $favoritesBottom.classList.add('hide-favorites');
+
+  const $favoritesModal = document.querySelector('.favorite-container-modal');
+  $favoritesModal.classList.add('hide-favorites');
+
+  renderFavoritePokemon();
+});
+
+function renderFavoritePokemon() {
+  const $favoriteContainer = document.querySelector('.favorite-container');
+  $favoriteContainer.innerHTML = '';
+
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  for (let i = 0; i < favorites.length; i++) {
+    const favoriteData = favorites[i];
+    const $cardDiv = renderPokemonFavorites(favoriteData);
+
+    // Add the column-one-fifth class to each card
+    $cardDiv.classList.add('column-one-fifth');
+
+    $favoriteContainer.appendChild($cardDiv);
+  }
+}
+
+function renderPokemonFavorites(pokemon) {
+  const $colDiv = document.createElement('div');
+  $colDiv.setAttribute('class', 'column-one-fifth');
+  $colDiv.setAttribute('data-name', pokemon.name);
+
+  const $pcDiv = document.createElement('div');
+  $pcDiv.setAttribute('class', 'pokemon-card');
+
+  const $pokeImage = document.createElement('img');
+  $pokeImage.setAttribute('src', pokemon.sprites.front_default);
+
+  const $pokeText = document.createElement('div');
+  $pokeText.setAttribute('class', 'pokemon-card-text');
+
+  const $name = document.createElement('h2');
+  $name.textContent = pokemon.name;
+
+  const $number = document.createElement('h3');
+  $number.textContent = '#' + pokemon.id;
+
+  const $experience = document.createElement('p');
+  $experience.textContent = 'Experience: ' + pokemon.base_experience;
+
+  const $species = document.createElement('p');
+  $species.textContent = 'Species: ' + pokemon.species.name;
+
+  $colDiv.appendChild($pcDiv);
+  $pcDiv.appendChild($pokeImage);
+  $pcDiv.appendChild($pokeText);
+  $pokeText.appendChild($name);
+  $pokeText.appendChild($number);
+  $pokeText.appendChild($experience);
+  $pokeText.appendChild($species);
+
+  $colDiv.addEventListener('click', (event) => {
+    const $clickedCard = event.target.closest('.column-one-fifth');
+    const $favoriteCard = $clickedCard.getAttribute('data-name');
+
+    let favoriteClickedID;
+    const favoriteCardID = event.target.id;
+    favoriteCardID = pokemon.id;
+
+    getPokemonFavoriteData(pokemon.id);
+
+    viewSwap('favorite-view');
+  });
+
+  return $colDiv;
+}

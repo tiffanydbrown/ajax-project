@@ -129,3 +129,9 @@ p {
 .modal-view {
   background-color: #ff76764f;
 }
+
+.favorite-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start; /* Adjust as needed */
+}
