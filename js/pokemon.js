@@ -218,14 +218,18 @@ function viewSwap(viewName) {
 const $exitButton = document.querySelector('.exit');
 
 $exitButton.addEventListener('click', (event) => {
-  if (event.target.matches('.exit')) {
-    const $rowModal = document.querySelector('.row-modal');
-
-    if ($rowModal) {
-      $rowModal.remove();
-      viewSwap('pokedex-view');
-    }
+  const $rowModal = document.querySelector('.row-modal');
+  if ($rowModal) {
+    $rowModal.remove();
   }
+  viewSwap('pokedex-view');
+});
+
+const $homeButton = document.querySelector('.home');
+
+$homeButton.addEventListener('click', (event) => {
+  const $rowModal = document.querySelector('.row-modal');
+  favoriteViewSwap('pokedex-view');
 });
 
 function favoriteViewSwap(viewName) {
@@ -241,24 +245,7 @@ function favoriteViewSwap(viewName) {
 const $heartIcon = document.querySelector('#favoriteHeart');
 
 $heartIcon.addEventListener('click', (event) => {
-  if (event.target.matches('#favoriteHeart')) {
-    favoriteViewSwap('favorite-view');
-    renderFavoritePokemon();
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const $favoritesBottom = document.querySelector('.favorite-container');
-  const $favoritesModal = document.querySelector('.modal-container');
-
-  if ($favoritesBottom) {
-    $favoritesBottom.classList.add('hide-favorites');
-  }
-
-  if ($favoritesModal) {
-    $favoritesModal.classList.add('hide-favorites');
-  }
-
+  favoriteViewSwap('favorite-view');
   renderFavoritePokemon();
 });
 
@@ -267,7 +254,6 @@ function renderFavoritePokemon() {
   if (!currentView) return;
 
   const $favoriteContainer = document.querySelector('.favorite-container');
-  $favoriteContainer.innerHTML = '';
 
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   for (let i = 0; i < favorites.length; i++) {
@@ -316,7 +302,7 @@ function renderPokemonFavorites(pokemon) {
 
   $colDiv.addEventListener('click', (event) => {
     const $clickedCard = event.target.closest('.column-one-fifth');
-    const pokemonId = $clickedCard.getAttribute('data-name'); // Ensure this is the correct attribute
+    const pokemonId = $clickedCard.getAttribute('data-name');
 
     getPokemonModalData(pokemonId);
 
