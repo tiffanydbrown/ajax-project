@@ -41,7 +41,10 @@
             <option value="dragon">Dragon</option>
             <option value="dark">Dark</option>
           </select>
-          <i class="fa-solid fa-heart" style="color: #ff4b91"></i>
+          <i
+            class="fa-solid fa-heart"
+            id="favoriteHeart"
+            style="color: #ff4b91"></i>
         </div>
       </div>
     </header>
@@ -58,7 +61,7 @@
           </div>
         </div>
       </div>
-      <div class="modal-view" id="modal-view" data-view="modal">
+      <div class="modal-view hidden" id="modal-view" data-view="modal">
         <div class="modal-container"></div>
         <div class="row">
           <div class="column-full">
@@ -68,9 +71,18 @@
           </div>
         </div>
       </div>
+      <div class="favorite-view hidden" id="favorite-view" data-view="favorite">
+        <div class="favorite-container" id="favorite-container-home"></div>
+        <div class="row">
+          <div class="column-full">
+            <button class="home" type="button">
+              <strong>Return Home</strong>
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
     <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/pokemon.js"></script>
   </body>
 </html>
