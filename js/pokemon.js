@@ -67,8 +67,6 @@ function renderPokemon(pokemon) {
     const cardID = event.target.id;
     clickedID = pokemon.id;
 
-    //check if id already exists, if so, delete
-
     getPokemonModalData(pokemon.id);
 
     viewSwap('modal-view');
