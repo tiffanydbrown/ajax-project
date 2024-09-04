@@ -172,3 +172,7 @@ p {
 .modal-view {
   background-color: #ff76764f;
 }
+
+.modal-view.hidden {
+  display: none;
+}
