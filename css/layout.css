@@ -55,6 +55,12 @@
   z-index: 1000;
 }
 
+.row-favorite {
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+}
+
 .card-column-one-half {
   padding: 2rem 0 0;
   width: calc(100% / 2);

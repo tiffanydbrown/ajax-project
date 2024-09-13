@@ -162,8 +162,25 @@ p {
   margin: 2rem;
 }
 
+.home {
+  background-color: #ff7676;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 2rem;
+}
+
 .modal-view {
   background-color: #ff76764f;
+  top: 50%;
+  left: 50%;
+}
+
+.favorite-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
 }
 
 .modal-view.hidden {

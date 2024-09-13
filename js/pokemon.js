@@ -191,18 +191,12 @@ function renderPokemonStatusCard(pokemon) {
       addToFavorites(pokemon);
     }
   });
-
   function addToFavorites(pokemon) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     favorites.push(pokemon);
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
-  function removeFromFavorites(pokemonId) {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favorites = favorites.filter((pokemon) => pokemon.id !== pokemonId);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }
   return $rowModal;
 }
 
