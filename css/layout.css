@@ -1,15 +1,29 @@
 .header-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.fa-heart {
+  display: flex;
+  object-fit: center;
+  height: 45px;
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: 1rem;
+  color: #ff4b91;
+  cursor: pointer;
 }
 
 .column-one-half {
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
   flex-basis: calc(100% / 2);
   align-items: flex-end;
   background-color: #0802a3;
   color: #ffcd4b;
+  padding: 1rem;
 }
 
 .pokemon-container {
@@ -25,6 +39,7 @@
 .column-one-fifth {
   padding: 0 0.5rem;
   width: calc(100% / 5);
+  max-width: 50%;
 }
 
 .column-full {
@@ -37,6 +52,7 @@
   display: flex;
   justify-content: center;
   margin: 3rem;
+  z-index: 1000;
 }
 
 .row-favorite {

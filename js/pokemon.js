@@ -197,11 +197,6 @@ function renderPokemonStatusCard(pokemon) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
-  function removeFromFavorites(pokemonId) {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favorites = favorites.filter((pokemon) => pokemon.id !== pokemonId);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }
   return $rowModal;
 }
 

@@ -1,45 +1,81 @@
-@media only screen and (width >= 430px) {
-  .column-one-fifth {
+@media only screen and (max-width: 768px) {
+  .column-one-half {
+    flex-basis: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .header-row {
+    justify-content: space-between;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #pokemon-type {
+    margin-left: 1rem;
+  }
+
+  .fa-heart {
+    margin-left: auto;
+  }
+
+  /* .column-one-fifth {
     flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  .pokemon-card {
+    max-width: 100%;
+    margin: 0 auto 1rem;
+  } */
+}
+
+@media only screen and (max-width: 480px) {
+  /* .column-one-fifth {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .pokemon-card {
+    max-width: 100%;
+  } */
+
+  h1 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  #pokemon-type {
+    margin: 0.5rem auto;
+    display: block;
+  }
+
+  .fa-heart {
+    margin-left: auto;
+    margin-right: 1rem;
+    display: block;
+    text-align: right;
   }
 }
 
-@media only screen and (width >= 932px) {
+@media only screen and (max-width: 768px) {
   .column-one-fifth {
-    flex-basis: calc(100% / 5);
-  }
-}
-
-@media only screen and (width >= 430px) {
-  .card-column-one-half {
-    flex-basis: 50%;
-  }
-}
-
-@media only screen and (width >= 932px) {
-  .card-column-one-half {
-    flex-basis: calc(100% / 2);
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
 
 h1 {
-  margin-left: 2rem;
+  margin-left: 1rem;
+  font-size: 1.5rem;
 }
 
 #pokemon-type {
   background-color: #ffcd4b;
-  margin-bottom: 1.3rem;
-  margin-left: 3.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.fa-heart {
-  display: flex;
-  object-fit: center;
-  height: 45px;
-  font-size: 30px;
-  margin-left: 3.5rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  padding: 0.5rem 1 rem;
 }
 
 p {
@@ -59,12 +95,12 @@ p {
   margin: 0.75rem 0;
 }
 
-.pokemon-card h2 {
-  margin-top: 0;
-}
-
 .pokemon-card h3 {
   color: #afa8a8;
+}
+
+.pokemon-card h2 .pokemon-card h3 {
+  margin-top: 0;
 }
 
 .pokemon-card > img {
@@ -145,4 +181,8 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
+}
+
+.modal-view.hidden {
+  display: none;
 }
