@@ -191,6 +191,7 @@ function renderPokemonStatusCard(pokemon) {
       addToFavorites(pokemon);
     }
   });
+
   function addToFavorites(pokemon) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     favorites.push(pokemon);
