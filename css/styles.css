@@ -19,28 +19,9 @@
   .fa-heart {
     margin-left: auto;
   }
-
-  /* .column-one-fifth {
-    flex-basis: 50%;
-    max-width: 50%;
-  }
-
-  .pokemon-card {
-    max-width: 100%;
-    margin: 0 auto 1rem;
-  } */
 }
 
 @media only screen and (max-width: 480px) {
-  /* .column-one-fifth {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-
-  .pokemon-card {
-    max-width: 100%;
-  } */
-
   h1 {
     font-size: 1.2rem;
     text-align: center;

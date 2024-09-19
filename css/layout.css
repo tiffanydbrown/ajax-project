@@ -70,3 +70,27 @@
 .hidden {
   display: none !important;
 }
+
+@media only screen and (max-width: 375px) {
+  .row-modal {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    z-index: 1000;
+  }
+
+  .card-column-one-half {
+    padding: 2rem 0 0;
+    width: calc(100% / 2);
+    margin: 2rem auto;
+  }
+
+  .pokemon-card-text2 {
+    font-size: 12px;
+    font-weight: 00;
+    font-family: 'Proza Libre', sans-serif;
+    background-color: #fff;
+    border: 20px solid #ffcd4b;
+    height: 100%;
+  }
+}
