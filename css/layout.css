@@ -83,7 +83,7 @@
   display: none !important;
 }
 
-@media only screen and (max-width: 375px) {
+/* @media only screen and (max-width: 375px) {
   .row-modal {
     display: flex;
     justify-content: center;
@@ -105,4 +105,4 @@
     border: 20px solid #ffcd4b;
     height: 100%;
   }
-}
+} */

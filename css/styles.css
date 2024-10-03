@@ -36,14 +36,21 @@
     padding: 0.5rem;
   }
 
-  .row-modal {
+  .exit {
+    width: 80%;
+
+    /* margin-top: 1rem;
+    font-size: 16px; */
+  }
+
+  /* .row-modal {
     padding: 1rem;
   }
 
   .modal-view {
     padding: 1rem;
     overflow-y: auto;
-  }
+  } */
 }
 
 @media only screen and (max-width: 480px) {
@@ -79,9 +86,16 @@
     padding: 0.25rem;
   }
 
-  .row-modal {
-    padding: 0.5rem;
+  .exit {
+    width: 100%;
+
+    /* margin-top: 0.5rem;
+    font-size: 14px; */
   }
+
+  /* .row-modal {
+    padding: 0.5rem;
+  } */
 }
 
 @media only screen and (max-width: 768px) {
@@ -162,7 +176,7 @@ p {
   background-color: #fff;
   padding: 1rem;
   text-align: center;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 }
 
 .pokemon-status-card > p {
@@ -209,7 +223,8 @@ p {
   border-radius: 10px;
   cursor: pointer;
   margin-top: 1rem;
-  width: auto;
+
+  /* width: auto; */
   text-align: center;
 }
 
@@ -239,7 +254,8 @@ p {
   z-index: 1000;
   padding: 1rem;
   overflow-y: auto;
-  flex-direction: column;
+
+  /* flex-direction: column; */
 }
 
 .favorite-container {
