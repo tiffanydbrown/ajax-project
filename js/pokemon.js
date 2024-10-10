@@ -141,6 +141,13 @@ function renderPokemonStatusCard(pokemon) {
   $favorite.setAttribute('class', 'fa-regular fa-heart');
   $favorite.setAttribute('id', 'likes');
 
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+  const isFavorite = favorites.some((fav) => fav.id === pokemon.id);
+  if (isFavorite) {
+    $favorite.className = 'fa-solid fa-heart';
+  }
+
   const $cardStats = document.createElement('p');
   $cardStats.textContent = pokemon.stats[0].base_stat + ' HP';
 
@@ -180,22 +187,33 @@ function renderPokemonStatusCard(pokemon) {
   $pokeCardText2.appendChild($cardWeight);
   $pokeCardText2.appendChild($cardAbilities);
 
-  let click = 0;
-
   $favorite.addEventListener('click', (event) => {
-    click++;
-    if (click % 2 === 0) {
-      $favorite.className = 'fa-regular fa-heart';
-      removeFromFavorites(pokemon.id);
-    } else if (click % 2 === 1) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    if ($favorite.classList.contains('fa-regular')) {
       $favorite.className = 'fa-solid fa-heart';
       addToFavorites(pokemon);
+    } else {
+      $favorite.className = 'fa-regular fa-heart';
+      removeFromFavorites(pokemon.id);
     }
   });
 
   function addToFavorites(pokemon) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favorites.push(pokemon);
+
+    if (!favorites.some((fav) => fav.id === pokemon.id)) {
+      favorites.push(pokemon);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    } else {
+      console.log('This Pokémon is already in the favorites');
+    }
+  }
+
+  function removeFromFavorites(pokemonId) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    favorites = favorites.filter((fav) => fav.id !== pokemonId);
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
@@ -274,23 +292,6 @@ function renderFavoritePokemon() {
     $favoriteContainer.appendChild($cardDiv);
   }
 }
-
-// function renderFavoritePokemon() {
-//   const currentView = document.querySelector('.favorite-view');
-//   if (!currentView) return;
-
-//   const $favoriteContainer = document.querySelector('.favorite-container');
-
-//   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-//   for (let i = 0; i < favorites.length; i++) {
-//     const favoriteData = favorites[i];
-//     const $cardDiv = renderPokemonFavorites(favoriteData);
-
-//     $cardDiv.classList.add('column-one-fifth');
-
-//     $favoriteContainer.appendChild($cardDiv);
-//   }
-// }
 
 function renderPokemonFavorites(pokemon) {
   const $colDiv = document.createElement('div');
