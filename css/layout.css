@@ -32,6 +32,10 @@
 }
 
 .row-pokemon {
+  /* display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin: 0 auto; */
   display: flex;
   flex-wrap: wrap;
 }
