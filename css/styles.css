@@ -43,6 +43,10 @@
   .exit {
     width: 80%;
   }
+
+  .favorite-container .pokemon-card {
+    flex: 1 1 calc(100% / 3);
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -88,6 +92,10 @@
 
   .exit {
     width: 100%;
+  }
+
+  .favorite-container .pokemon-card {
+    flex: 1 1 calc(100% / 2);
   }
 }
 
@@ -144,6 +152,10 @@
 
   .exit {
     width: 80%;
+  }
+
+  .favorite-container .pokemon-card {
+    flex: 1 1 100%;
   }
 }
 
@@ -306,6 +318,14 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
+  gap: 1rem;
+}
+
+.favorite-container .pokemon-card {
+  flex: 1 1 calc(100% / 5);
+
+  /* max-width: calc(100% / 5); */
+  box-sizing: border-box;
 }
 
 .modal-view.hidden {
