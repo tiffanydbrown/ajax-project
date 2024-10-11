@@ -34,6 +34,7 @@
 .row-pokemon {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .column-one-fifth {
@@ -77,4 +78,9 @@
 
 .hidden {
   display: none !important;
+}
+
+.modal-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
