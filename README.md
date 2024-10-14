@@ -1,4 +1,4 @@
-# [Catch-'Em-All!](https://tiffanydbrown.github.io/catch-em-all/)
+# :pokeball: [Catch-'Em-All!](https://tiffanydbrown.github.io/catch-em-all/)
 
 A web application that displays Pokémon and their abilities by fetching data from the public PokéAPI that allows users to view Generation 1 Pokémon, and make a list of their favorites.
 ## :memo: How to Use the Site
